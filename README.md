@@ -66,14 +66,4 @@ lib/                      # types, motion variants, utils, useSafeReducedMotion
 public/                   # resume.pdf + og.png go here (see README-assets.md)
 ```
 
-## ⚠️ Placeholders to replace before launch
 
-Search the repo for `TODO` and `[TARGET`. Specifically:
-
-1. **`public/og.png`** — add a 1200×630 social-share image (referenced in `app/layout.tsx`).
-3. **`content/projects.ts` → `links`** — every project's `github` / `live` / `paper` URLs are empty placeholders. The sidebar shows "Links coming soon" until filled.
-5. **Research accuracy** — the "≥ 40% exact-match" figure is clearly marked `[TARGET — to be validated]`. Update once you have results.
-
-## Deploy
-
-Push to a Git repo and import into Vercel — zero config. Framework preset is auto-detected (Next.js).
