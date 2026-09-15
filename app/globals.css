@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0b0d;
+  --grid-line: rgba(237, 237, 232, 0.04);
+}
+
+@layer base {
+  * {
+    border-color: rgba(237, 237, 232, 0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: theme("colors.bone.DEFAULT");
+    font-family: theme("fontFamily.sans");
+    overflow-x: hidden;
+  }
+
+  /* Layered depth on the page background: faint grid + radial glow. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    pointer-events: none;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(700px circle at 15% -5%, rgba(232, 176, 75, 0.07), transparent 60%),
+      radial-gradient(900px circle at 90% 10%, rgba(232, 176, 75, 0.04), transparent 55%);
+    pointer-events: none;
+  }
+
+  ::selection {
+    background: rgba(232, 176, 75, 0.25);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.signal.DEFAULT");
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Honor reduced-motion globally. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-editorial {
+    @apply mx-auto w-full max-w-editorial px-6 sm:px-8 lg:px-12;
+  }
+
+  .label-mono {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-bone-faint;
+  }
+
+  .hairline {
+    @apply border-t border-bone/10;
+  }
+
+  /* Subtle grain overlay utility for layered cards. */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    border-radius: inherit;
+  }
+
+  .card-surface {
+    @apply relative rounded-2xl border border-bone/10 bg-ink-50/60 backdrop-blur-sm;
+    box-shadow:
+      inset 0 1px 0 0 rgba(237, 237, 232, 0.04),
+      0 24px 60px -30px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Glassmorphism frame for the hero portrait — blue/gold rim light over
+     a blurred, translucent graphite surface. */
+  .portrait-glass {
+    @apply border border-bone/10 bg-ink-50/50 backdrop-blur-md;
+    box-shadow:
+      inset 0 1px 0 0 rgba(237, 237, 232, 0.10),
+      inset 0 0 0 1px rgba(77, 141, 240, 0.08),
+      0 0 0 1px rgba(10, 11, 13, 0.6),
+      0 30px 80px -40px rgba(0, 0, 0, 0.95),
+      0 0 60px -20px rgba(77, 141, 240, 0.28),
+      0 0 70px -25px rgba(232, 176, 75, 0.22);
+  }
+
+  /* Skills constellation tags. Position/opacity are written per frame by
+     SkillSphere; only the static look lives here. */
+  .skill-tag {
+    @apply font-sans font-medium tracking-tight;
+    user-select: none;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition: text-shadow 0.4s ease, opacity 0.4s ease;
+  }
+  .skill-tag.is-dim {
+    opacity: 0.09 !important;
+  }
+  .skill-tag.is-match {
+    text-shadow: 0 0 22px currentColor;
+  }
+  /* In the flat list the whole set stays legible. */
+  .skill-tag:not(.absolute).is-dim {
+    opacity: 0.22 !important;
+  }
+
+  /* HUD-inspired notched panel (chamfered top-right + bottom-left). */
+  .clip-notch {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 16px) 0,
+      100% 16px,
+      100% 100%,
+      16px 100%,
+      0 calc(100% - 16px)
+    );
+  }
+
+  /* Sci-fi panel surface to pair with .clip-notch (amber-tinted border look
+     faked via layered background since clip-path removes real borders). */
+  .hud-panel {
+    @apply relative bg-ink-50/70 backdrop-blur-sm;
+    background-image: linear-gradient(
+      135deg,
+      rgba(232, 176, 75, 0.06),
+      transparent 40%
+    );
+  }
+}
+
+/* Thin, themed scrollbar. */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0b0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d323a;
+  border-radius: 999px;
+  border: 3px solid #0a0b0d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4049;
+}
