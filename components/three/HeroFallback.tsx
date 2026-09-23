@@ -1,7 +1,7 @@
 /**
  * Static, dependency-free fallback for the hero scene.
  * Rendered on mobile, while the 3D canvas loads, and for
- * users who prefer reduced motion. Pure SVG — no JS, no 3D.
+ * users who prefer reduced motion. Pure SVG - no JS, no 3D.
  */
 export function HeroFallback() {
   const nodes = [

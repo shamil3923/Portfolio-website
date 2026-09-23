@@ -1,6 +1,6 @@
-# Mohamed Shamil — Portfolio
+# Mohamed Shamil - Portfolio
 
-A premium, interactive portfolio for an AI/ML engineer — "research engineer meets product builder." Dark editorial theme, one R3F 3D hero scene, one interactive reasoning-pipeline visualization, and fully typed, data-driven content.
+A premium, interactive portfolio for an AI/ML engineer - "research engineer meets product builder." Dark editorial theme, one R3F 3D hero scene, one interactive reasoning-pipeline visualization, and fully typed, data-driven content.
 
 ## Stack
 
@@ -22,7 +22,7 @@ npm run lint
 
 ## Where to edit content
 
-All content is centralized and typed — you never touch JSX to change copy.
+All content is centralized and typed - you never touch JSX to change copy.
 
 | File | What it holds |
 | --- | --- |
@@ -38,13 +38,13 @@ Adding a project = add one object to `content/projects.ts`. The home grid and it
 
 ## Design system
 
-- **Base:** layered near-black graphite (`ink` scale), faint grid + radial glow + grain — never flat.
+- **Base:** layered near-black graphite (`ink` scale), faint grid + radial glow + grain - never flat.
 - **Accent:** a warm amber/copper (`signal`) for state, focus and signal, paired with a cool network blue (`neural`) used only for the neural-graph layers behind the hero portrait. Two accents, strictly separated roles.
-- **Type:** Fraunces (display serif) · Inter (sans) · JetBrains Mono (labels/metadata) — an editorial "lab notebook" pairing.
+- **Type:** Fraunces (display serif) · Inter (sans) · JetBrains Mono (labels/metadata) - an editorial "lab notebook" pairing.
 - **Layout:** 1240px editorial grid, asymmetric columns, numbered sections (01–07), layered cards with real depth.
 - **Motion:** masked text rises, staggered scroll reveals, hover tilt + cursor spotlight on project cards, scroll-linked experience timeline, a drag-to-spin skills constellation. All gated by `prefers-reduced-motion`.
-- **3D:** one R3F neural/agent graph behind the hero (blue edges + amber signals), lazy-loaded, desktop-only; static SVG fallback on mobile / reduced-motion / no-WebGL. The research pipeline is interactive SVG (crisp, accessible, mobile-first) rather than 3D — by design.
-- **Hero portrait:** `components/ui/HeroPortrait.tsx` — the subject in a glassmorphism frame with pointer tilt, layered parallax, cursor-following glow, a slow float, a drifting key light and a light sweep, over an animated SVG neural field. Plays a looping portrait video when `public/profile-hero.{webm,mp4}` exist and falls back to the still otherwise; `app/page.tsx` checks for them server-side so a missing clip never 404s. Configured by `HERO_PORTRAIT` in `content/hero.ts` — see `public/README-assets.md`.
+- **3D:** one R3F neural/agent graph behind the hero (blue edges + amber signals), lazy-loaded, desktop-only; static SVG fallback on mobile / reduced-motion / no-WebGL. The research pipeline is interactive SVG (crisp, accessible, mobile-first) rather than 3D - by design.
+- **Hero portrait:** `components/ui/HeroPortrait.tsx` - the subject in a glassmorphism frame with pointer tilt, layered parallax, cursor-following glow, a slow float, a drifting key light and a light sweep, over an animated SVG neural field. Plays a looping portrait video when `public/profile-hero.{webm,mp4}` exist and falls back to the still otherwise; `app/page.tsx` checks for them server-side so a missing clip never 404s. Configured by `HERO_PORTRAIT` in `content/hero.ts` - see `public/README-assets.md`.
 
 ## File structure
 

@@ -41,7 +41,7 @@ export function About() {
           ))}
         </motion.ul>
 
-        {/* Stat block — HUD-framed */}
+        {/* Stat block - HUD-framed */}
         <div className="lg:col-span-5">
           <Reveal className="relative">
             <span className="absolute -left-1 -top-1 z-10 h-5 w-5 border-l-2 border-t-2 border-signal/60" />

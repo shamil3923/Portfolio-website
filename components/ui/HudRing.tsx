@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
 /**
- * Rotating HUD ring — adapted from the reference's "Which language I used"
+ * Rotating HUD ring - adapted from the reference's "Which language I used"
  * dial, recolored to amber. Cycles through a list (e.g. a project's stack)
  * in the center while concentric arcs and orbiting dots rotate.
  * Static under reduced-motion.

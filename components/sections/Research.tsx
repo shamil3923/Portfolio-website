@@ -35,7 +35,7 @@ export function Research() {
           index="03"
           eyebrow="Research focus"
           title="Making multi-step reasoning auditable."
-          description="My final-year project asks whether a language model and a Hierarchical Reasoning Model can be composed so that every step of a math solution is decodable and verifiable — not just the final answer."
+          description="My final-year project asks whether a language model and a Hierarchical Reasoning Model can be composed so that every step of a math solution is decodable and verifiable - not just the final answer."
         />
 
         <div className="mt-16 grid gap-10 lg:grid-cols-12 lg:items-start">

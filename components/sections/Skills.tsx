@@ -14,7 +14,7 @@ export function Skills() {
         index="04"
         eyebrow="Stack"
         title="The tools behind the systems."
-        description="Organized by where they sit in the build — from agent orchestration down to the infrastructure that runs it. Filter by layer, or spin the whole stack."
+        description="Organized by where they sit in the build - from agent orchestration down to the infrastructure that runs it. Filter by layer, or spin the whole stack."
       />
 
       <Reveal className="mt-14">

@@ -15,7 +15,7 @@ import { HERO_VIDEO_FILES } from "@/content/hero";
 /**
  * Does the hero's looping portrait video actually exist? Checked here, on the
  * server at build time, so the client never renders a <video> pointing at a
- * file that isn't there — which is what would produce 404s in the console.
+ * file that isn't there - which is what would produce 404s in the console.
  * Drop the encoded files into /public and rebuild; nothing else to change.
  */
 const heroVideoReady = HERO_VIDEO_FILES.some((file) =>

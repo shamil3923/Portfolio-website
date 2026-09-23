@@ -1,6 +1,6 @@
 import type { Variants } from "framer-motion";
 
-/** Shared easing — a calm, premium curve. */
+/** Shared easing - a calm, premium curve. */
 export const ease = [0.22, 1, 0.36, 1] as const;
 
 export const fadeUp: Variants = {
@@ -31,7 +31,7 @@ export const staggerSlow: Variants = {
   },
 };
 
-/** Masked text rise — used for display headings. */
+/** Masked text rise - used for display headings. */
 export const maskRise: Variants = {
   hidden: { y: "110%" },
   show: { y: "0%", transition: { duration: 0.9, ease } },

@@ -6,7 +6,7 @@ import { Component, Suspense, useEffect, useState, type ReactNode } from "react"
 import { HeroFallback } from "./HeroFallback";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
-// Lazy-load the 3D scene — never in the SSR bundle.
+// Lazy-load the 3D scene - never in the SSR bundle.
 const HeroScene = dynamic(() => import("./HeroScene"), {
   ssr: false,
   loading: () => <HeroFallback />,

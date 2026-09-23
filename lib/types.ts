@@ -1,6 +1,6 @@
 /**
  * Centralized content types.
- * All portfolio content is typed-data-driven — edit files in /content,
+ * All portfolio content is typed-data-driven - edit files in /content,
  * never hardcode content into JSX.
  */
 
@@ -41,6 +41,13 @@ export type Project = {
   links: ProjectLinks;
   /** Optional richer case-study sections for detail pages */
   caseStudy?: CaseStudyBlock[];
+  /**
+   * Preview visual: a path under /public (e.g. "/projects/slug.jpg").
+   * Rendered as the card thumbnail and as the case-study preview.
+   */
+  image?: string;
+  /** Alt text for `image`. Falls back to the project title. */
+  imageAlt?: string;
   /** Short accent label, e.g. "Research" / "Agentic AI" */
   domain: string;
 };

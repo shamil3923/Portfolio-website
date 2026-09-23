@@ -8,7 +8,7 @@ import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 /**
  * Interactive visualization of the hybrid LLM + HRM reasoning pipeline.
  * Built with SVG + Framer Motion (not 3D) so it stays crisp, legible,
- * fully keyboard-accessible, and excellent on mobile — where a labelled
+ * fully keyboard-accessible, and excellent on mobile - where a labelled
  * pipeline matters more than a 3D flourish.
  *
  * A "signal" travels stage-to-stage; the active stage drives the detail panel.
@@ -30,7 +30,7 @@ const stages: Stage[] = [
     title: "LLM Parser",
     io: "Word problem → structured parse",
     detail:
-      "An LLM reads the free-form math word problem and extracts entities, quantities, and the operations relating them — turning prose into a machine-readable parse.",
+      "An LLM reads the free-form math word problem and extracts entities, quantities, and the operations relating them - turning prose into a machine-readable parse.",
   },
   {
     id: "graph",
@@ -38,7 +38,7 @@ const stages: Stage[] = [
     title: "Graph Bridge Encoder",
     io: "Parse → dependency graph",
     detail:
-      "A graph attention encoder builds a dependency graph of sub-results with intermediate arithmetic traces — the contract that lets the HRM reason over structure rather than tokens.",
+      "A graph attention encoder builds a dependency graph of sub-results with intermediate arithmetic traces - the contract that lets the HRM reason over structure rather than tokens.",
   },
   {
     id: "hrm",
@@ -54,7 +54,7 @@ const stages: Stage[] = [
     title: "LLM Explainer",
     io: "Trace → natural-language solution",
     detail:
-      "An LLM verbalizes the decoded reasoning trace into a step-by-step explanation — so the answer arrives with an auditable justification, not just a number.",
+      "An LLM verbalizes the decoded reasoning trace into a step-by-step explanation - so the answer arrives with an auditable justification, not just a number.",
   },
 ];
 

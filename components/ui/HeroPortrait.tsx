@@ -19,11 +19,11 @@ import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
 export { HERO_PORTRAIT };
 
-/** Colour grade applied to the subject — identical for the video and the still,
+/** Colour grade applied to the subject - identical for the video and the still,
  *  so swapping between them is invisible. */
 const SUBJECT_GRADE = "[filter:saturate(0.55)_contrast(1.1)_brightness(0.9)]";
 
-/** Fine-pointer check — pointer parallax/tilt is desktop-only. */
+/** Fine-pointer check - pointer parallax/tilt is desktop-only. */
 function useFinePointer() {
   const [fine, setFine] = useState(false);
   useEffect(() => {
@@ -56,7 +56,7 @@ export function HeroPortrait({ videoReady = false }: { videoReady?: boolean }) {
   // Normalised pointer position within the card (-0.5 … 0.5).
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  // Raw pixel position — drives the cursor-following glow.
+  // Raw pixel position - drives the cursor-following glow.
   const gx = useMotionValue(0);
   const gy = useMotionValue(0);
 
@@ -171,7 +171,7 @@ export function HeroPortrait({ videoReady = false }: { videoReady?: boolean }) {
           >
             {/* Glassmorphism frame */}
             <div className="portrait-glass grain relative h-full w-full overflow-hidden rounded-[20px] transition-colors duration-500 group-hover:border-signal/30">
-              {/* The subject — looping video when we have it, still otherwise.
+              {/* The subject - looping video when we have it, still otherwise.
                   Both sit in the same box with the same object-fit and grading,
                   so the card, borders and text stay aligned either way. */}
               <motion.div
@@ -181,7 +181,7 @@ export function HeroPortrait({ videoReady = false }: { videoReady?: boolean }) {
                 <div
                   className={cn(
                     "relative h-full w-full",
-                    // No CSS zoom on the subject while real footage is playing —
+                    // No CSS zoom on the subject while real footage is playing -
                     // the motion has to come from the video, not a fake push-in.
                     !useVideo &&
                       "transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.035]",
@@ -274,7 +274,7 @@ export function HeroPortrait({ videoReady = false }: { videoReady?: boolean }) {
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink via-ink/55 to-transparent"
               />
-              {/* Gold/blue duotone wash — ties the photo to the palette */}
+              {/* Gold/blue duotone wash - ties the photo to the palette */}
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 bg-gradient-to-br from-neural/[0.14] via-transparent to-signal/14 mix-blend-overlay"
@@ -297,7 +297,7 @@ export function HeroPortrait({ videoReady = false }: { videoReady?: boolean }) {
                 style={{ background: cursorGlow, opacity: hovered ? 1 : 0 }}
               />
 
-              {/* HUD corner brackets — gold top, blue bottom */}
+              {/* HUD corner brackets - gold top, blue bottom */}
               <span className="pointer-events-none absolute left-3 top-3 h-5 w-5 border-l-2 border-t-2 border-signal/60" />
               <span className="pointer-events-none absolute right-3 top-3 h-5 w-5 border-r-2 border-t-2 border-signal/60" />
               <span className="pointer-events-none absolute bottom-3 left-3 h-5 w-5 border-b-2 border-l-2 border-neural/55" />

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
  * Why not framer-motion's `useReducedMotion()`:
  *
  *  1. It reads the media query during the *first* client render, while the
- *     server — which has no media query — always emits the full-motion markup.
+ *     server - which has no media query - always emits the full-motion markup.
  *     Any component that branches structurally on it (a plain <span> instead of
  *     a <motion.span>, a still instead of a <video>) then hydrates against
  *     different HTML: React error #418, followed by #423 as it throws the
@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
  *
  * Starting at `false` and filling in after mount fixes both: the first client
  * render always matches the server, and the listener keeps it live. Nothing is
- * lost — no animation has started before mount, so reduced-motion users still
+ * lost - no animation has started before mount, so reduced-motion users still
  * never see motion.
  */
 export function useSafeReducedMotion(): boolean {

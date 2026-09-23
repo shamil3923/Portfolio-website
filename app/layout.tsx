@@ -23,13 +23,13 @@ const jetbrains = JetBrains_Mono({
 });
 
 const description =
-  "Mohamed Shamil — AI/ML Engineer building agentic systems and LLM applications, and researching hybrid LLM–HRM reasoning for interpretable mathematical problem solving.";
+  "Mohamed Shamil - AI/ML Engineer building agentic systems and LLM applications, and researching hybrid LLM–HRM reasoning for interpretable mathematical problem solving.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.domain),
   title: {
-    default: `${profile.name} — AI/ML Engineer`,
-    template: `%s — ${profile.name}`,
+    default: `${profile.name} - AI/ML Engineer`,
+    template: `%s - ${profile.name}`,
   },
   description,
   keywords: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: profile.domain,
-    title: `${profile.name} — AI/ML Engineer`,
+    title: `${profile.name} - AI/ML Engineer`,
     description,
     siteName: `${profile.name} · Portfolio`,
     // TODO: add a real 1200x630 OG image at /public/og.png
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — AI/ML Engineer`,
+    title: `${profile.name} - AI/ML Engineer`,
     description,
     images: ["/og.png"],
   },

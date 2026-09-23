@@ -111,7 +111,7 @@
       0 24px 60px -30px rgba(0, 0, 0, 0.8);
   }
 
-  /* Glassmorphism frame for the hero portrait — blue/gold rim light over
+  /* Glassmorphism frame for the hero portrait - blue/gold rim light over
      a blurred, translucent graphite surface. */
   .portrait-glass {
     @apply border border-bone/10 bg-ink-50/50 backdrop-blur-md;

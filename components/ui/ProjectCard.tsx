@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import type { Project } from "@/lib/types";
@@ -58,6 +59,26 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               "radial-gradient(380px circle at var(--mx,50%) var(--my,50%), rgba(232,176,75,0.08), transparent 65%)",
           }}
         />
+
+        {/* Preview visual - full-bleed across the card's padding */}
+        {project.image && (
+          <div className="relative -mx-7 -mt-7 mb-7 overflow-hidden border-b border-bone/10 sm:-mx-8 sm:-mt-8 sm:mb-8">
+            <div className="relative aspect-[16/9]">
+              <Image
+                src={project.image}
+                alt={project.imageAlt ?? project.title}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+            {/* Fade the image into the card surface */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-100/70 via-transparent to-transparent"
+            />
+          </div>
+        )}
 
         <div className="relative flex items-center justify-between gap-3">
           <Tag accent>{project.domain}</Tag>

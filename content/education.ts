@@ -19,7 +19,7 @@ export const education: EducationItem[] = [
   },
   {
     institution: "Kekunagolla National School",
-    qualification: "G.C.E. Advanced Level — Physical Science",
+    qualification: "G.C.E. Advanced Level - Physical Science",
     period: "2018 – 2020",
     location: "Kurunegala, Sri Lanka",
     results: [

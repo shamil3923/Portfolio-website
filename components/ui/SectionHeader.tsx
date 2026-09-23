@@ -44,8 +44,8 @@ export function SectionHeader({
       </div>
 
       {/* The in-view trigger has to live on the *unclipped* h2. Put it on the
-          masked span instead and `overflow-hidden` clips that span — parked at
-          y:110% — to zero area, so it never intersects and never reveals. */}
+          masked span instead and `overflow-hidden` clips that span - parked at
+          y:110% - to zero area, so it never intersects and never reveals. */}
       <motion.h2
         className="overflow-hidden font-display text-3xl leading-[1.05] tracking-tightest text-bone sm:text-4xl md:text-5xl"
         initial={reduce ? false : "hidden"}

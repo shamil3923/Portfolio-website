@@ -6,12 +6,12 @@ import type { SocialLink } from "@/lib/types";
 export const social: SocialLink[] = [
   {
     label: "GitHub",
-    href: "https://github.com/shamil",
+    href: "https://github.com/shamil3923",
     handle: "@shamil",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/shamil",
+    href: "https://www.linkedin.com/in/mohamed-shamil-b40295253/",
     handle: "in/shamil",
   },
   {

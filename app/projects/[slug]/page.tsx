@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects, getProject } from "@/content/projects";
 import { Tag } from "@/components/ui/Tag";
@@ -23,7 +24,11 @@ export function generateMetadata({
   return {
     title: project.title,
     description: project.tagline,
-    openGraph: { title: project.title, description: project.tagline },
+    openGraph: {
+      title: project.title,
+      description: project.tagline,
+      images: project.image ? [{ url: project.image }] : undefined,
+    },
   };
 }
 
@@ -129,23 +134,36 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               </Reveal>
             ))}
 
-            {/* Framed visual slot — scroll-tilt + marching-ants border.
-                TODO: drop a real screenshot/diagram in /public and replace
-                the placeholder below with <img />. */}
+            {/* Framed visual - scroll-tilt + marching-ants border. The image
+                comes from `project.image`; projects without one keep the
+                placeholder so the layout is never half-built. */}
             <section>
               <h2 className="label-mono mb-4">Preview</h2>
-              <BracketFrame caption="Screenshot coming soon">
-                <div className="grid aspect-[16/10] w-full place-items-center bg-[radial-gradient(circle_at_50%_40%,rgba(232,176,75,0.08),transparent_60%)]">
-                  <div className="text-center">
-                    <p className="font-display text-2xl text-bone/40">
-                      {project.domain}
-                    </p>
-                    <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-bone-faint">
-                      Add a wireframe / demo still
-                    </p>
+              {project.image ? (
+                <BracketFrame caption="System architecture">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt ?? project.title}
+                    width={1600}
+                    height={900}
+                    sizes="(min-width: 1024px) 66vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </BracketFrame>
+              ) : (
+                <BracketFrame caption="Screenshot coming soon">
+                  <div className="grid aspect-[16/10] w-full place-items-center bg-[radial-gradient(circle_at_50%_40%,rgba(232,176,75,0.08),transparent_60%)]">
+                    <div className="text-center">
+                      <p className="font-display text-2xl text-bone/40">
+                        {project.domain}
+                      </p>
+                      <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-bone-faint">
+                        Add a wireframe / demo still
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </BracketFrame>
+                </BracketFrame>
+              )}
             </section>
           </div>
 
@@ -180,10 +198,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 </Reveal>
               )}
 
-              <Reveal delay={0.1}>
-                <div className="card-surface p-6">
-                  <h2 className="label-mono mb-4">Links</h2>
-                  {hasLinks ? (
+              {/* The panel only exists when there is somewhere to go - an empty
+                  "coming soon" card is worse than no card. */}
+              {hasLinks && (
+                <Reveal delay={0.1}>
+                  <div className="card-surface p-6">
+                    <h2 className="label-mono mb-4">Links</h2>
                     <ul className="space-y-2 text-sm">
                       {project.links.github && (
                         <li>
@@ -222,13 +242,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                         </li>
                       )}
                     </ul>
-                  ) : (
-                    <p className="font-mono text-xs text-bone-faint">
-                      Links coming soon — TODO: add repo / paper URL.
-                    </p>
-                  )}
-                </div>
-              </Reveal>
+                  </div>
+                </Reveal>
+              )}
             </div>
           </aside>
         </div>

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Graphite base — layered near-black, not flat.
+        // Graphite base - layered near-black, not flat.
         ink: {
           DEFAULT: "#0A0B0D",
           50: "#15171B",
@@ -22,13 +22,13 @@ const config: Config = {
           muted: "#A7A9A3",
           faint: "#6E716C",
         },
-        // Single warm signal accent — amber/copper.
+        // Single warm signal accent - amber/copper.
         signal: {
           DEFAULT: "#E8B04B",
           soft: "#F0C778",
           deep: "#B9842B",
         },
-        // Cool counterpart — the neural network / circuitry blue.
+        // Cool counterpart - the neural network / circuitry blue.
         neural: {
           DEFAULT: "#4D8DF0",
           soft: "#8FB6F7",

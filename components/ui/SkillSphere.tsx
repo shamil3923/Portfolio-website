@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
 /**
- * Skills constellation — a draggable sphere of skill tags.
+ * Skills constellation - a draggable sphere of skill tags.
  *
  * Tags are laid out on a Fibonacci sphere (even spacing, no clumping),
  * projected by hand each frame so near tags read larger and brighter than
@@ -16,7 +16,7 @@ import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
  * keeps the momentum, and the category chips dim everything that doesn't
  * match.
  *
- * Renders as a plain wrapped list on the server and on narrow stages — which
+ * Renders as a plain wrapped list on the server and on narrow stages - which
  * is also the reduced-motion path, so the content is always readable without
  * the animation.
  */
@@ -24,7 +24,7 @@ import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 /** Type size per weight, in rem. */
 const FONT: Record<number, number> = { 3: 0.88, 2: 0.7, 1: 0.58 };
 
-/** Category tones — a gold-to-bone ramp, so the section stays black + gold. */
+/** Category tones - a gold-to-bone ramp, so the section stays black + gold. */
 const TONES: Record<string, string> = {
   "agentic-ai": "#E8B04B",
   "ml-dl": "#F0C778",
@@ -69,7 +69,7 @@ const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 export function SkillSphere() {
   const reduce = useSafeReducedMotion();
   const [filter, setFilter] = useState<string>("all");
-  // Flat on the server and on the first client render — no hydration mismatch.
+  // Flat on the server and on the first client render - no hydration mismatch.
   // The effect below promotes it to the sphere when there's room for one.
   const [spinning, setSpinning] = useState(false);
 
@@ -91,7 +91,7 @@ export function SkillSphere() {
     points: [] as { x: number; y: number; z: number }[],
   });
 
-  /** Fibonacci sphere — even spacing, computed once. */
+  /** Fibonacci sphere - even spacing, computed once. */
   useEffect(() => {
     const n = TAGS.length;
     cloud.current.points = TAGS.map((_, i) => {
@@ -114,7 +114,7 @@ export function SkillSphere() {
 
   /**
    * Radius. Must run *after* the stage has switched to its fixed sphere
-   * height — in flat layout the stage is only as tall as the wrapped list,
+   * height - in flat layout the stage is only as tall as the wrapped list,
    * which would pin the radius to its floor.
    */
   const sizeCloud = useCallback(() => {
@@ -166,7 +166,7 @@ export function SkillSphere() {
     return () => io.disconnect();
   }, []);
 
-  /** The render loop — writes transforms straight to the DOM, never state. */
+  /** The render loop - writes transforms straight to the DOM, never state. */
   useEffect(() => {
     if (!spinning) return;
     const stage = stageRef.current;

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 /**
  * HUD-style notched button with chevron affordances (amber).
  * Borrowed from the reference's "« Previous project / Next project »" and
- * "Back to home" controls — rendered in the amber/graphite palette.
+ * "Back to home" controls - rendered in the amber/graphite palette.
  *
  * Two-layer notch technique: clip-path strips real borders, so an outer
  * amber layer + inner ink layer fakes a 1px chamfered border.

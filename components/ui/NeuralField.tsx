@@ -8,7 +8,7 @@ import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
  *
  * Pure SVG (no three.js, no extra deps): a faint blue circuit grid,
  * slowly breathing connection lines, pulsing nodes, and a handful of
- * amber "signals" travelling along edges — the same reasoning-propagation
+ * amber "signals" travelling along edges - the same reasoning-propagation
  * metaphor as the R3F hero scene, at a fraction of the cost.
  *
  * Deterministic coordinates → identical on server and client, and the
@@ -101,7 +101,7 @@ export function NeuralField({ className }: { className?: string }) {
       <g mask="url(#nf-mask)">
         <rect width="100" height="100" fill="url(#nf-grid)" />
 
-        {/* Connection lines — slow dash drift + breathing opacity. */}
+        {/* Connection lines - slow dash drift + breathing opacity. */}
         <g strokeWidth="0.3" strokeLinecap="round">
           {EDGES.map(([a, b], i) => (
             <motion.line
@@ -128,7 +128,7 @@ export function NeuralField({ className }: { className?: string }) {
           ))}
         </g>
 
-        {/* Nodes — gentle staggered pulse. */}
+        {/* Nodes - gentle staggered pulse. */}
         <g>
           {NODES.map(([x, y], i) => {
             const accent = i % 5 === 0;

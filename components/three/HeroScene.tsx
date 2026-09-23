@@ -7,7 +7,7 @@ import * as THREE from "three";
 /**
  * Hero scene: a drifting neural / agent graph.
  * Nodes float in a shallow volume, edges connect nearest neighbours,
- * and amber "signals" travel along a subset of edges — the visual
+ * and amber "signals" travel along a subset of edges - the visual
  * metaphor for reasoning propagating through a network.
  *
  * Cool blue network + a single amber signal accent.

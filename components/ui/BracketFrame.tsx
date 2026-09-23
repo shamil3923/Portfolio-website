@@ -12,7 +12,7 @@ import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
 /**
  * Bracket-corner frame with a marching-ants dashed border and an optional
- * scroll-linked 3D perspective tilt — the two signature treatments from the
+ * scroll-linked 3D perspective tilt - the two signature treatments from the
  * reference's framed screenshot ("Click for see wireframe"), in amber.
  */
 export function BracketFrame({
@@ -31,7 +31,7 @@ export function BracketFrame({
     target: ref,
     offset: ["start end", "center center"],
   });
-  // Enters tilted in 3D, settles flat as it reaches center — the page-tilt feel.
+  // Enters tilted in 3D, settles flat as it reaches center - the page-tilt feel.
   const rx = useSpring(useTransform(scrollYProgress, [0, 1], [12, 0]), {
     stiffness: 90,
     damping: 22,

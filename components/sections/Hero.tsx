@@ -75,7 +75,7 @@ export function Hero({ videoReady = false }: { videoReady?: boolean }) {
               variants={fadeUp}
               className="mt-7 max-w-xl text-base leading-relaxed text-bone-muted sm:text-lg"
             >
-              {focusLine}. I build agentic systems and ship them to production —
+              {focusLine}. I build agentic systems and ship them to production -
               and I research interpretable reasoning at the model level.
             </motion.p>
 
@@ -107,7 +107,7 @@ export function Hero({ videoReady = false }: { videoReady?: boolean }) {
             </motion.div>
           </motion.div>
 
-          {/* Portrait column — primary visual identity */}
+          {/* Portrait column - primary visual identity */}
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
