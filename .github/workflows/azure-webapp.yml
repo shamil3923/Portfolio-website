@@ -1,0 +1,45 @@
+name: Build and deploy to Azure Web App - shamil-portfolio-001
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # required for OIDC login to Azure
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'      # matches the App Service runtime (NODE|22-lts)
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      # `output: "standalone"` omits these two. Without the copy the site
+      # deploys with no CSS and no JavaScript.
+      - name: Assemble standalone bundle
+        run: |
+          cp -R .next/static .next/standalone/.next/static
+          cp -R public/. .next/standalone/public/
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'shamil-portfolio-001'
+          slot-name: 'Production'
+          package: .next/standalone
